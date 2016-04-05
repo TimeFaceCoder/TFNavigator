@@ -9,11 +9,23 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class TFURLAction;
+typedef void(^TFActionCompletionBlock)(__kindof TFURLAction *action);
+
+
 @interface TFURLAction : NSObject
 
 @property (nonatomic ,copy) NSString *urlPath;
 @property (nonatomic ,strong) NSDictionary *userInfo;
-@property (nonatomic ,assign) BOOL pre;
+/**
+ *  弹出模式
+ */
+@property (nonatomic ,assign) BOOL presentModel;
+/**
+ *  弹出模式回调
+ */
+@property (nonatomic, copy) TFActionCompletionBlock actionCompletionBlock;
+
 //@property (nonatomic ,weak) UINavigationController *navigationController;
 /**
  *  根据url 与 userinfo 构建 TFURLAction

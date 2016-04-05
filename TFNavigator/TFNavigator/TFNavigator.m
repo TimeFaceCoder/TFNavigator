@@ -76,8 +76,20 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
     //open viewcontroller
     UIViewController *currentController = [[[UIApplication sharedApplication] keyWindow] visibleViewController];
     if (currentController) {
-        
-        [currentController.navigationController pushViewController:viewController animated:YES];
+        if (action.presentModel) {
+            [currentController presentViewController:viewController
+                                            animated:YES
+                                          completion:^{
+                                              if (action.actionCompletionBlock) {
+                                                  action.actionCompletionBlock(action);
+                                                  action.actionCompletionBlock = nil;
+                                              }
+                                          }];
+        }
+        else {
+            [currentController.navigationController pushViewController:viewController
+                                                              animated:YES];
+        }
     }
 }
 
