@@ -25,6 +25,11 @@ typedef void(^TFActionCompletionBlock)(__kindof TFURLAction *action);
  *  弹出模式回调
  */
 @property (nonatomic, copy) TFActionCompletionBlock actionCompletionBlock;
+/**
+ *  转场动画代理
+ */
+@property (nonatomic, weak) id <UIViewControllerTransitioningDelegate> transitioningDelegate;
+
 
 //@property (nonatomic ,weak) UINavigationController *navigationController;
 /**

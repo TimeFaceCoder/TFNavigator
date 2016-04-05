@@ -38,4 +38,10 @@
     return self;
 }
 
+- (void)dealloc {
+    self.actionCompletionBlock = nil;
+    self.transitioningDelegate = nil;
+    self.userInfo = nil;
+}
+
 @end

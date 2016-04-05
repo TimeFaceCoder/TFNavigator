@@ -76,6 +76,10 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
     //open viewcontroller
     UIViewController *currentController = [[[UIApplication sharedApplication] keyWindow] visibleViewController];
     if (currentController) {
+        if (action.transitioningDelegate) {
+            viewController.transitioningDelegate = action.transitioningDelegate;
+            viewController.modalPresentationStyle = UIModalPresentationCustom;
+        }
         if (action.presentModel) {
             [currentController presentViewController:viewController
                                             animated:YES
