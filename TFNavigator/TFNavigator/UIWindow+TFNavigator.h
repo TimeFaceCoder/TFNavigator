@@ -13,3 +13,13 @@
 - (UIViewController *)visibleViewController;
 
 @end
+
+///--------------------------------
+/// @name UIViewController Category
+///--------------------------------
+
+@interface UIViewController (TFRouter)
+
+@property (nonatomic, strong) NSDictionary *params;
+
+@end

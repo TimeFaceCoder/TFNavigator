@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "UIWindow+TFNavigator.h"
 
 typedef NS_ENUM (NSInteger, TFRouteType) {
     TFRouteTypeNone = 0,
@@ -36,13 +37,3 @@ extern NSString *const TFParameterUserInfo;
 
 @end
 
-
-///--------------------------------
-/// @name UIViewController Category
-///--------------------------------
-
-@interface UIViewController (TFRouter)
-
-@property (nonatomic, strong) NSDictionary *params;
-
-@end

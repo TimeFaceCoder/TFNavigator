@@ -7,6 +7,7 @@
 //
 
 #import "UIWindow+TFNavigator.h"
+#import <objc/runtime.h>
 
 @implementation UIWindow (TFNavigator)
 
@@ -27,6 +28,25 @@
             return vc;
         }
     }
+}
+
+@end
+
+
+#pragma mark - UIViewController Category
+
+@implementation UIViewController (TFRouter)
+
+static char kAssociatedParamsObjectKey;
+
+- (void)setParams:(NSDictionary *)paramsDictionary
+{
+    objc_setAssociatedObject(self, &kAssociatedParamsObjectKey, paramsDictionary, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSDictionary *)params
+{
+    return objc_getAssociatedObject(self, &kAssociatedParamsObjectKey);
 }
 
 @end
