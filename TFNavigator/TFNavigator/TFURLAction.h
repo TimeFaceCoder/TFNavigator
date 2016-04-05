@@ -13,7 +13,8 @@
 
 @property (nonatomic ,copy) NSString *urlPath;
 @property (nonatomic ,strong) NSDictionary *userInfo;
-@property (nonatomic ,weak) UINavigationController *navigationController;
+@property (nonatomic ,assign) BOOL pre;
+//@property (nonatomic ,weak) UINavigationController *navigationController;
 /**
  *  根据url 与 userinfo 构建 TFURLAction
  *

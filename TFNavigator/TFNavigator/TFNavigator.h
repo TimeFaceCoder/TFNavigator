@@ -26,6 +26,13 @@ void TFOpenURL(NSString *URL ,NSDictionary *userInfo);
  *  @param controllerClass
  */
 - (void)map:(NSString *)route toControllerClass:(Class)controllerClass;
+/**
+ *  注册app webview controller
+ *
+ *  @param route           路由
+ *  @param controllerClass Class
+ */
+- (void)registeredWebViewController:(NSString *)route toControllerClass:(Class)controllerClass;
 
 - (void)openURLAction:(TFURLAction *)action;
 

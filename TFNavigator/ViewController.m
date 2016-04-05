@@ -32,7 +32,7 @@
 }
 
 - (void)onViewClick:(id)sender {
-    TFOpenURL(@"/content/", @{@"userID":@"21212"});
+    TFOpenURL(@"alipay://", @{@"userID":@"21212"});
 }
 
 @end

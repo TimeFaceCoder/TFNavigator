@@ -34,5 +34,36 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>tencent101006551</string>
+		<string>QQ06053CD7</string>
+		<string>wb1111379081</string>
+		<string>tfAlipay</string>
+		<string>wx4987e271f6e8b3b3</string>
+		<string>tfcircle</string>
+		<string>timeDetail</string>
+		<string>timeface</string>
+		<string>wechat</string>
+		<string>weixin</string>
+		<string>alipay</string>
+		<string>alipayshare</string>
+		<string>sinaweibo</string>
+		<string>sinaweibohd</string>
+		<string>sinaweibosso</string>
+		<string>sinaweibohdsso</string>
+		<string>weibosdk</string>
+		<string>weibosdk2.5</string>
+		<string>mqzone</string>
+		<string>mqqwpa</string>
+		<string>wtloginmqq2</string>
+		<string>mqqopensdkapiV3</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqq</string>
+		<string>wtloginmqq2</string>
+		<string>mqqopensdkapiV3</string>
+		<string>mqqapi</string>
+	</array>
 </dict>
 </plist>

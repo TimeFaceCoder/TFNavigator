@@ -19,6 +19,8 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
     
 }
 
+@property (nonnull ,copy) NSString *webViewRouter;
+
 @end
 
 @implementation TFNavigator
@@ -40,6 +42,12 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
     [[TFRouter shared] map:route toControllerClass:controllerClass];
 }
 
+- (void)registeredWebViewController:(NSString *)route toControllerClass:(Class)controllerClass {
+    self.webViewRouter = route;
+    [[TFRouter shared] map:route toControllerClass:controllerClass];
+}
+
+
 - (void)openURLAction:(TFURLAction *)action {
     if (action == nil || action.urlPath == nil) {
         return;
@@ -50,6 +58,17 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
         [[UIApplication sharedApplication] openURL:URL];
         return;
     }
+    if ([self isWebURL:URL]) {
+        //web url check
+        if (_webViewRouter) {
+            //use registered WebView  open the web url
+            TFOpenURL(self.webViewRouter, @{@"url":URL});
+        }
+        else {
+            //use safari open the web url
+            [[UIApplication sharedApplication] openURL:URL];
+        }
+    }
     UIViewController *viewController = [self matchController:action.urlPath userInfo:action.userInfo];
     if (!viewController) {
         return ;
@@ -57,6 +76,7 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
     //open viewcontroller
     UIViewController *currentController = [[[UIApplication sharedApplication] keyWindow] visibleViewController];
     if (currentController) {
+        
         [currentController.navigationController pushViewController:viewController animated:YES];
     }
 }
