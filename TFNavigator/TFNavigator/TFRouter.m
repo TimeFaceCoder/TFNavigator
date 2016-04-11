@@ -15,7 +15,6 @@
 @property (strong, nonatomic) NSMutableDictionary *paramKeys;
 @end
 
-NSString *const TFParameterUserInfo = @"TFParameterUserInfo";
 
 
 

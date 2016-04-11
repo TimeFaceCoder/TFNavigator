@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "TFNavigator.h"
+#import "TFNavigator/TFURLAction.h"
 
 @interface ViewController ()
 
@@ -24,6 +26,12 @@
     [self.view addSubview:button];
     
     [button addTarget:self action:@selector(onViewClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    TFOpenURL(@"/content/12", @{});
+    
+    TFURLAction *action = [TFURLAction actionWithURLPath:@"/content/" userInfo:@{}];
+    
+    [[TFNavigator sharedNavigator] openURLAction:action];
 }
 
 - (void)didReceiveMemoryWarning {
