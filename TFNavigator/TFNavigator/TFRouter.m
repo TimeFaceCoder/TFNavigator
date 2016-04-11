@@ -59,7 +59,7 @@
     Class controllerClass = params[@"controller_class"];
     if (userInfo) {
         //传入自定义参数
-        params[TFParameterUserInfo] = [userInfo copy];
+        params[kTFNavigatorParameterUserInfo] = [userInfo copy];
     }
     UIViewController *viewController = [[controllerClass alloc] init];
     
@@ -159,7 +159,7 @@
         }
     }
     //默认userinfo为空
-    params[TFParameterUserInfo] = @{};
+    params[kTFNavigatorParameterUserInfo] = @{};
     
     return params;
 }
