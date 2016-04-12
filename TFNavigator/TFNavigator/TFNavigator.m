@@ -117,7 +117,7 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)isWebURL:(NSURL*)URL {
-    return [URL.scheme caseInsensitiveCompare:@"http"] == NSOrderedSame
+    return !URL.scheme ? NO : [URL.scheme caseInsensitiveCompare:@"http"] == NSOrderedSame
     || [URL.scheme caseInsensitiveCompare:@"https"] == NSOrderedSame
     || [URL.scheme caseInsensitiveCompare:@"ftp"] == NSOrderedSame
     || [URL.scheme caseInsensitiveCompare:@"ftps"] == NSOrderedSame
