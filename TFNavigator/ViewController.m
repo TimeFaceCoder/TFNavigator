@@ -27,11 +27,11 @@
     
     [button addTarget:self action:@selector(onViewClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    TFOpenURL(@"/content/12", @{});
-    
-    TFURLAction *action = [TFURLAction actionWithURLPath:@"/content/" userInfo:@{}];
-    
-    [[TFNavigator sharedNavigator] openURLAction:action];
+//    TFOpenURL(@"/content/12", @{});
+//    
+//    TFURLAction *action = [TFURLAction actionWithURLPath:@"/content/" userInfo:@{}];
+//    
+//    [[TFNavigator sharedNavigator] openURLAction:action];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,7 +40,11 @@
 }
 
 - (void)onViewClick:(id)sender {
-    TFOpenURL(@"alipay://", @{@"userID":@"21212"});
+//    TFOpenURL(@"alipay://", @{@"userID":@"21212"});
+    
+    TFURLAction *action = [TFURLAction actionWithURLPath:@"/content/" userInfo:nil];
+    action.presentModel = YES;
+    [[TFNavigator sharedNavigator] openURLAction:action];
 }
 
 @end

@@ -81,7 +81,17 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
             viewController.modalPresentationStyle = UIModalPresentationCustom;
         }
         if (action.presentModel) {
-            [currentController presentViewController:viewController
+            UIViewController *vc = nil;
+            
+            if (viewController.navigationController) {
+                vc = viewController;
+            }
+            else {
+                action.navigationViewControllerClass = action.navigationViewControllerClass ? : [UINavigationController class];
+                vc = [[action.navigationViewControllerClass alloc] initWithRootViewController:viewController];
+            }
+            
+            [currentController presentViewController:vc
                                             animated:YES
                                           completion:^{
                                               if (action.actionCompletionBlock) {
