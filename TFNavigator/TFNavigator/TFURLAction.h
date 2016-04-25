@@ -33,7 +33,7 @@ typedef void(^TFActionCompletionBlock)(__kindof TFURLAction *action);
 /**
  *  一般用于模态时，包装传入的viewController
  */
-@property (nonatomic ,strong) Class navigationViewControllerClass;
+@property (nonatomic , assign) Class navigationViewControllerClass;
 /**
  *  根据url 与 userinfo 构建 TFURLAction
  *
