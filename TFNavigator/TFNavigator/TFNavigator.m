@@ -101,6 +101,7 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
                                           }];
         }
         else {
+            viewController.hidesBottomBarWhenPushed = YES;
             [currentController.navigationController pushViewController:viewController
                                                               animated:YES];
         }
