@@ -27,6 +27,7 @@ typedef id (^TFRouterBlock)(NSDictionary *params);
 - (void)mapWith:(NSDictionary *)param toControllerClass:(Class)controllerClass;
 - (UIViewController *)matchController:(NSString *)route;
 - (UIViewController *)matchController:(NSString *)route userInfo:(NSDictionary *)userInfo;
+- (UIViewController *)matchController:(NSString *)route StoryboardName:(NSString *)storyboardName UserInfo:(NSDictionary *)userInfo;
 
 - (void)map:(NSString *)route toBlock:(TFRouterBlock)block;
 - (TFRouterBlock)matchBlock:(NSString *)route;

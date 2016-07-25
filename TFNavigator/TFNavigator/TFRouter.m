@@ -70,6 +70,22 @@
     return viewController;
 }
 
+- (UIViewController *)matchController:(NSString *)route StoryboardName:(NSString *)storyboardName UserInfo:(NSDictionary *)userInfo {
+    NSMutableDictionary *params = [self paramsInRoute:route];
+    Class controllerClass = params[@"controller_class"];
+    if (userInfo) {
+        //传入自定义参数
+        params[kTFNavigatorParameterUserInfo] = [userInfo copy];
+    }
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:[NSBundle mainBundle]];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(controllerClass)];
+    if ([viewController respondsToSelector:@selector(setParams:)]) {
+        [viewController performSelector:@selector(setParams:)
+                             withObject:[params copy]];
+    }
+    return viewController;
+}
+
 - (TFRouterBlock)matchBlock:(NSString *)route
 {
     NSDictionary *params = [self paramsInRoute:route];

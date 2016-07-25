@@ -12,6 +12,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 void TFOpenURL(NSString *URL ,NSDictionary *userInfo);
+void TFOpenStoryboardURL(NSString *URL , NSString * storyboardName ,NSDictionary *userInfo);
 
 @class TFURLAction;
 
@@ -38,5 +39,7 @@ void TFOpenURL(NSString *URL ,NSDictionary *userInfo);
 - (UIViewController *)matchController:(NSString *)route;
 
 - (UIViewController *)matchController:(NSString *)route userInfo:(NSDictionary *)userInfo;
+
+- (UIViewController *)matchController:(NSString *)route StoryboardName:(NSString *)storyboardName userInfo:(NSDictionary *)userInfo;
 
 @end

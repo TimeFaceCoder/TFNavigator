@@ -15,6 +15,12 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
     [[TFNavigator sharedNavigator] openURLAction:[TFURLAction actionWithURLPath:URL userInfo:userInfo]];
 }
 
+void TFOpenStoryboardURL(NSString* URL ,NSString * storyboardName ,NSDictionary *userInfo) {
+    TFURLAction *urlAction = [TFURLAction actionWithURLPath:URL userInfo:userInfo];
+    urlAction.storyboardName = storyboardName;
+    [[TFNavigator sharedNavigator] openURLAction:urlAction];
+}
+
 @interface TFNavigator() {
     
 }
@@ -69,7 +75,13 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
             [[UIApplication sharedApplication] openURL:URL];
         }
     }
-    UIViewController *viewController = [self matchController:action.urlPath userInfo:action.userInfo];
+    UIViewController *viewController;
+    if (action.storyboardName.length!=0) {
+        viewController = [self matchController:action.urlPath StoryboardName:action.storyboardName userInfo:action.userInfo];
+    }
+    else {
+        viewController = [self matchController:action.urlPath userInfo:action.userInfo];
+    }
     if (!viewController) {
         return ;
     }
@@ -114,6 +126,11 @@ void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
 }
 - (UIViewController *)matchController:(NSString *)route userInfo:(NSDictionary *)userInfo {
     UIViewController *viewController = [[TFRouter shared] matchController:route userInfo:userInfo];
+    return viewController;
+}
+
+- (UIViewController *)matchController:(NSString *)route StoryboardName:(NSString *)storyboardName userInfo:(NSDictionary *)userInfo {
+    UIViewController *viewController = [[TFRouter shared]matchController:route StoryboardName:storyboardName UserInfo:userInfo];
     return viewController;
 }
 

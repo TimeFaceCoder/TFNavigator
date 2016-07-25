@@ -16,6 +16,7 @@ typedef void(^TFActionCompletionBlock)(__kindof TFURLAction *action);
 @interface TFURLAction : NSObject
 
 @property (nonatomic ,copy) NSString *urlPath;
+@property (nonatomic ,strong) NSString *storyboardName;
 @property (nonatomic ,strong) NSDictionary *userInfo;
 /**
  *  弹出模式
