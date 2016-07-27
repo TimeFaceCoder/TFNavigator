@@ -114,8 +114,17 @@ void TFOpenStoryboardURL(NSString* URL ,NSString * storyboardName ,NSDictionary 
         }
         else {
             viewController.hidesBottomBarWhenPushed = YES;
-            [currentController.navigationController pushViewController:viewController
-                                                              animated:YES];
+            NSNumber *replaceIndex = action.userInfo[kOpenURLViewControllerIndexKey];
+            if (replaceIndex) {
+                NSArray *viewControllersArr = currentController.navigationController.viewControllers;
+                viewControllersArr = [viewControllersArr subarrayWithRange:NSMakeRange(0, viewControllersArr.count-[replaceIndex integerValue])];
+                
+                [currentController.navigationController setViewControllers:[viewControllersArr arrayByAddingObject:viewController] animated:YES];
+            }
+            else {
+                [currentController.navigationController pushViewController:viewController
+                                                                animated:YES];
+            }
         }
     }
 }
