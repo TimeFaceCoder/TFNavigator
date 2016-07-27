@@ -70,7 +70,7 @@
     return viewController;
 }
 
-- (UIViewController *)matchController:(NSString *)route StoryboardName:(NSString *)storyboardName UserInfo:(NSDictionary *)userInfo {
+- (UIViewController *)matchController:(NSString *)route storyboardName:(NSString *)storyboardName userInfo:(NSDictionary *)userInfo {
     NSMutableDictionary *params = [self paramsInRoute:route];
     Class controllerClass = params[@"controller_class"];
     if (userInfo) {

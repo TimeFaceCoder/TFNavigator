@@ -43,6 +43,6 @@ void TFOpenStoryboardURL(NSString *URL , NSString * storyboardName ,NSDictionary
 
 - (UIViewController *)matchController:(NSString *)route userInfo:(NSDictionary *)userInfo;
 
-- (UIViewController *)matchController:(NSString *)route StoryboardName:(NSString *)storyboardName userInfo:(NSDictionary *)userInfo;
+- (UIViewController *)matchController:(NSString *)route storyboardName:(NSString *)storyboardName userInfo:(NSDictionary *)userInfo;
 
 @end

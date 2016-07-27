@@ -77,7 +77,7 @@ void TFOpenStoryboardURL(NSString* URL ,NSString * storyboardName ,NSDictionary 
     }
     UIViewController *viewController;
     if (action.storyboardName.length!=0) {
-        viewController = [self matchController:action.urlPath StoryboardName:action.storyboardName userInfo:action.userInfo];
+        viewController = [self matchController:action.urlPath storyboardName:action.storyboardName userInfo:action.userInfo];
     }
     else {
         viewController = [self matchController:action.urlPath userInfo:action.userInfo];
@@ -138,8 +138,8 @@ void TFOpenStoryboardURL(NSString* URL ,NSString * storyboardName ,NSDictionary 
     return viewController;
 }
 
-- (UIViewController *)matchController:(NSString *)route StoryboardName:(NSString *)storyboardName userInfo:(NSDictionary *)userInfo {
-    UIViewController *viewController = [[TFRouter shared]matchController:route StoryboardName:storyboardName UserInfo:userInfo];
+- (UIViewController *)matchController:(NSString *)route storyboardName:(NSString *)storyboardName userInfo:(NSDictionary *)userInfo {
+    UIViewController *viewController = [[TFRouter shared]matchController:route storyboardName:storyboardName userInfo:userInfo];
     return viewController;
 }
 
