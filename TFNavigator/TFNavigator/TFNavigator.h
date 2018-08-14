@@ -14,8 +14,8 @@
 
 static NSString *kOpenURLViewControllerIndexKey = @"OpenURLViewControllerIndex";///<替换某个viewcontroller的索引
 
-void TFOpenURL(NSString *URL ,NSDictionary *userInfo);
-void TFOpenStoryboardURL(NSString *URL , NSString * storyboardName ,NSDictionary *userInfo);
+UIViewController * TFOpenURL(NSString *URL ,NSDictionary *userInfo);
+UIViewController * TFOpenStoryboardURL(NSString *URL , NSString * storyboardName ,NSDictionary *userInfo);
 
 @class TFURLAction;
 
@@ -37,7 +37,7 @@ void TFOpenStoryboardURL(NSString *URL , NSString * storyboardName ,NSDictionary
  */
 - (void)registeredWebViewController:(NSString *)route toControllerClass:(Class)controllerClass;
 
-- (void)openURLAction:(TFURLAction *)action;
+- (UIViewController *)openURLAction:(TFURLAction *)action;
 
 - (UIViewController *)matchController:(NSString *)route;
 

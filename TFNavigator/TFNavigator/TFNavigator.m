@@ -11,14 +11,14 @@
 #import "TFURLAction.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-void TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
-    [[TFNavigator sharedNavigator] openURLAction:[TFURLAction actionWithURLPath:URL userInfo:userInfo]];
+UIViewController * TFOpenURL(NSString* URL ,NSDictionary *userInfo) {
+    return [[TFNavigator sharedNavigator] openURLAction:[TFURLAction actionWithURLPath:URL userInfo:userInfo]];
 }
 
-void TFOpenStoryboardURL(NSString* URL ,NSString * storyboardName ,NSDictionary *userInfo) {
+UIViewController * TFOpenStoryboardURL(NSString* URL ,NSString * storyboardName ,NSDictionary *userInfo) {
     TFURLAction *urlAction = [TFURLAction actionWithURLPath:URL userInfo:userInfo];
     urlAction.storyboardName = storyboardName;
-    [[TFNavigator sharedNavigator] openURLAction:urlAction];
+    return [[TFNavigator sharedNavigator] openURLAction:urlAction];
 }
 
 @interface TFNavigator() {
@@ -54,15 +54,15 @@ void TFOpenStoryboardURL(NSString* URL ,NSString * storyboardName ,NSDictionary 
 }
 
 
-- (void)openURLAction:(TFURLAction *)action {
+- (UIViewController *)openURLAction:(TFURLAction *)action {
     if (action == nil || action.urlPath == nil) {
-        return;
+        return nil;
     }
     //third-party app
     NSURL *URL = [NSURL URLWithString:action.urlPath];
     if ([self isAppURL:URL]) {
         [[UIApplication sharedApplication] openURL:URL];
-        return;
+        return nil;
     }
     if ([self isWebURL:URL]) {
         //web url check
@@ -83,7 +83,7 @@ void TFOpenStoryboardURL(NSString* URL ,NSString * storyboardName ,NSDictionary 
         viewController = [self matchController:action.urlPath userInfo:action.userInfo];
     }
     if (!viewController) {
-        return ;
+        return nil;
     }
     //open viewcontroller
     UIViewController *currentController = [[[UIApplication sharedApplication] keyWindow] visibleViewController];
@@ -127,6 +127,7 @@ void TFOpenStoryboardURL(NSString* URL ,NSString * storyboardName ,NSDictionary 
             }
         }
     }
+    return viewController;
 }
 
 
