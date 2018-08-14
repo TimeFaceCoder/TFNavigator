@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "TFNavigator"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "时光流影iOS Navigator框架"
   s.homepage     = "https://github.com/TimeFaceCoder/TFNavigator"
   s.license = { :type => "MIT", :file => "LICENSE" }
