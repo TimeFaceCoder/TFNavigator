@@ -69,6 +69,7 @@
 		B06EDC741CAE1FEA006BAD61 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		B06EDC761CAE2016006BAD61 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
 		B06EDC771CAE2016006BAD61 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		B0ADB6EE2124188E0006021B /* TFNavigatorKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFNavigatorKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +175,7 @@
 				B06EDC6E1CAD0D99006BAD61 /* TFURLAction.m */,
 				B06EDC701CAE1F20006BAD61 /* UIWindow+TFNavigator.h */,
 				B06EDC711CAE1F20006BAD61 /* UIWindow+TFNavigator.m */,
+				B0ADB6EE2124188E0006021B /* TFNavigatorKit.h */,
 			);
 			path = TFNavigator;
 			sourceTree = "<group>";
